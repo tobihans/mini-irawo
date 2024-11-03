@@ -14,3 +14,34 @@
  *= require_self
  *= require matcha
  */
+
+:root {
+  --color-text-primary: #fff;
+}
+
+.layout-simple {
+  & > :is(header:first-of-type) {
+    .logo:only-of-type {
+      color: var(--ly-brand);
+      text-decoration: none;
+    }
+  }
+
+  & > :is(main:only-of-type) {
+    min-height: 100dvh;
+  }
+
+  & > :is(footer:last-of-type) {
+    display: flex;
+    gap: 0.1rem;
+    flex-direction: column;
+    padding: 0.75rem 0.5rem !important;
+    font-size: 0.75rem;
+    line-height: 1rem;
+
+    @media (min-width: 960px) {
+      gap: 0.25rem;
+      flex-direction: row;
+    }
+  }
+}
