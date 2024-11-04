@@ -1,5 +1,5 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<%= tag.div(flash[:alert], class: "bd-severe my-1.5 px-1 py-.5") if flash[:alert] %>
+<%= tag.div(flash[:notice], class: "bd-success my-1.5 px-1 py-.5") if flash[:notice] %>
 
 <%= form_with url: session_path do |form| %>
   <div class="my-1">
