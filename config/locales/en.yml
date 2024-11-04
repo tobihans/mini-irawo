@@ -1,11 +1,16 @@
 en:
   header:
-    menu:
-      history: "History"
-      signin: "Sign in"
-      signout: "Sign out"
+    history: "History"
   footer:
     attribution: "With 💜 by"
+  auth:
+    signup: "Sign up"
+    signin: "Sign in"
+    signout: "Sign out"
+    email: "Email address"
+    password: "Password"
+    forgot_password: "Forgot password?"
   models:
-    resources:
-      title: "Resources"
+    resources: "Resources"
+  misc:
+    or: "or"
