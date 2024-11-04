@@ -18,6 +18,12 @@
   </head>
 
   <body class="layout-simple">
-    <%= yield %>
+    <%= render "application/header" %>
+    <%= yield :aside_nth_1 %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= yield :aside_nth_2 %>
+    <%= render "application/footer" %>
   </body>
 </html>
