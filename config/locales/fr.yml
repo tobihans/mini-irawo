@@ -1,3 +1,11 @@
 fr:
+  header:
+    menu:
+      history: "Historique"
+      signin: "Connexion"
+      signout: "Se déconnecter"
   footer:
     attribution: "Avec 💜 par"
+  models:
+    resources:
+      title: "Ressources"
