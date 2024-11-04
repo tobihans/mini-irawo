@@ -1,7 +1,10 @@
 en:
+  header:
+    signin: "Sign in"
+    signout: "Sign out"
   footer:
     attribution: "With 💜 by"
   models:
-  resources:
-    index:
-      title: "Resources"
+    resources:
+      index:
+        title: "Resources"
