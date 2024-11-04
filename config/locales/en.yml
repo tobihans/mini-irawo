@@ -1,3 +1,7 @@
 en:
   footer:
     attribution: "With 💜 by"
+  models:
+  resources:
+    index:
+      title: "Resources"
