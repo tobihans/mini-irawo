@@ -25,10 +25,48 @@
     :is(menu) {
       border-bottom: none;
     }
+
+    menu.desktop-menu {
+      display: none;
+      @media (min-width: 960px) {
+        display: flex;
+      }
+    }
+
+    menu.mobile-menu {
+      margin-left: auto;
+      @media (min-width: 960px) {
+        display: none;
+      }
+
+      li > svg {
+        position: relative;
+        top: 5px;
+      }
+
+      li > menu {
+        left: -125%;
+      }
+    }
+  }
+
+  & > aside {
+    @media (min-width: 960px) {
+      box-shadow: none !important;
+    }
   }
 
   & > :is(main:only-of-type) {
     min-height: 100dvh;
+
+    & > form {
+      margin: 3rem auto;
+      max-width: 500px;
+
+      > :is(h1, h2, h3, h4, h5, h6) {
+        border-bottom: none;
+      }
+    }
   }
 
   & > :is(footer:last-of-type) {

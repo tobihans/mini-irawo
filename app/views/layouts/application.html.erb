@@ -19,11 +19,12 @@
 
   <body class="layout-simple">
     <%= render "application/header" %>
-    <%= yield :admin_aside %>
+    <aside>
+      <!-- HINT: Quick hack to force centered layout from matcha.css -->
+    </aside>
     <main>
       <%= yield %>
     </main>
-    <%= yield :aside %>
     <%= render "application/footer" %>
   </body>
 </html>

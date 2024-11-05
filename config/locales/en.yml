@@ -10,6 +10,7 @@ en:
     email: "Email address"
     password: "Password"
     forgot_password: "Forgot password?"
+    reset: "Reset password"
   forms:
     invalid: "Please fix the errors below."
     create: "Create"

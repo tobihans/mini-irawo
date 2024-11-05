@@ -3,7 +3,7 @@
     <%= link_to "💫 Irawo", root_path, class: "logo bold" %>
     <sup class="accent">mini</sup>
   </h1>
-  <menu style="margin-left: 1.25rem; flex-grow: 1;">
+  <menu class="desktop-menu" style="margin-left: 1.25rem; flex-grow: 1;">
     <li class="<%= 'selected' if controller_name == "resources" %>">
       <%= link_to t("models.resources"), root_path %>
     </li>
@@ -24,5 +24,36 @@
         <%= link_to t("auth.signin"), new_session_path, class: "px-.75 py-.5" %>
       </li>
     <% end %>
+  </menu>
+  <menu class="mobile-menu">
+    <li>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+      ><path fill="currentColor" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+      <span>Menu</span>
+      <menu>
+        <li class="<%= 'selected' if controller_name == "resources" %>">
+          <%= link_to t("models.resources"), root_path %>
+        </li>
+        <li class="<%= 'selected' if controller_name == "history" %>">
+          <%= t("header.history") %>
+        </li>
+        <% if authenticated? %>
+          <li class="disabled">
+            <%= current_user.email_address %>
+          </li>
+          <li>
+            <%= link_to t("auth.signout"), session_path, data: { turbo_method: :delete } %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t("auth.signin"), new_session_path %>
+          </li>
+        <% end %>
+      </menu>
+    </li>
   </menu>
 </header>
