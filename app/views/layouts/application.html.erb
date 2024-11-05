@@ -19,11 +19,11 @@
 
   <body class="layout-simple">
     <%= render "application/header" %>
-    <%= yield :aside_nth_1 %>
+    <%= yield :admin_aside %>
     <main>
       <%= yield %>
     </main>
-    <%= yield :aside_nth_2 %>
+    <%= yield :aside %>
     <%= render "application/footer" %>
   </body>
 </html>
