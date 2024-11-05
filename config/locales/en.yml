@@ -18,6 +18,9 @@ en:
     resources: "Resources"
   resources:
     new: "Add a resource"
+    category: "Category"
+    price: "Price"
+    free: "Free"
     image:
       hint: "Please ensure image has 16:9 aspect ratio."
     url:

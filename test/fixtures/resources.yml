@@ -6,6 +6,7 @@
 #  description :string
 #  kind        :string
 #  name        :string
+#  price       :integer
 #  url         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

@@ -21,10 +21,14 @@
   border-radius: 0.625rem;
 }
 .resource-item_link {
-  display: block;
+  display: flex;
+  flex-direction: column;
+
   padding: 30px 20px;
   background-color: var(--default);
 
+  min-height: 200px;
+  max-height: 400px;
   overflow: hidden;
 
   position: relative;
@@ -36,6 +40,7 @@
 }
 
 .resource-item_title {
+  flex-grow: 1;
   min-height: 87px;
   margin: 0 0 25px;
 

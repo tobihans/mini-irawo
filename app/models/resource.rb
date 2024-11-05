@@ -6,6 +6,7 @@
 #  description :string
 #  kind        :string
 #  name        :string
+#  price       :integer
 #  url         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -21,7 +22,9 @@
 #
 class Resource < ApplicationRecord
   belongs_to :category
-  has_one_attached :image
+  has_one_attached :image do |attachable|
+    attachable.variant :thumb, resize_to_limit: [ 400, 400 ], preprocessed: true
+  end
   has_one_attached :file
 
   VALID_KINDS = %w[url file]
@@ -30,6 +33,7 @@ class Resource < ApplicationRecord
   validates :image, presence: true
 
   validates :kind, inclusion: { in: VALID_KINDS }
+  validates :price, presence: true, comparison: { greater_than_or_equal_to: 0 }
   validates :description, presence: true, length: { minimum: 75 }
 
   with_options if: :external? do

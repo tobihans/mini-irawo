@@ -31,7 +31,7 @@
   </div>
 
   <div class="my-1">
-    <%= form.label :category %>
+    <%= form.label t("resources.category") %>
     <ul class="smaller">
       <% resource.errors.full_messages_for(:category).each do |message| %>
         <li>
@@ -40,6 +40,18 @@
       <% end %>
     </ul>
     <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+  </div>
+
+  <div class="my-1">
+    <%= form.label t("resources.price") %>
+    <ul class="smaller">
+      <% resource.errors.full_messages_for(:price).each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.number_field :price, min: 0 %>
   </div>
 
   <div class="my-1">
