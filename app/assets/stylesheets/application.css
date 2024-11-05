@@ -14,7 +14,6 @@
  *= require_self
  *= require matcha
  *= require vars
- *= require utilities
  */
 
 .layout-simple {
