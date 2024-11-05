@@ -27,6 +27,26 @@ class Resource < ApplicationRecord
   VALID_KINDS = %w[url file]
 
   validates :name, presence: true, length: { minimum: 5, maximum: 255 }
-  validates :description, presence: true, length: { minimum: 75 }
+  validates :image, presence: true
+
   validates :kind, inclusion: { in: VALID_KINDS }
+  validates :description, presence: true, length: { minimum: 75 }
+
+  with_options if: :external? do
+    validates :url, presence: true, url: true
+    validates :file, absence: true
+  end
+
+  with_options if: :internal? do
+    validates :file, presence: true
+    validates :url, absence: true
+  end
+
+  def external?
+    kind == VALID_KINDS.first
+  end
+
+  def internal?
+    kind == VALID_KINDS.last
+  end
 end

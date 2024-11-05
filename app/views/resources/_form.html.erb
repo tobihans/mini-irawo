@@ -3,12 +3,6 @@
     <div class="flash attention small">
       <%= t("forms.invalid") %>
     </div>
-
-    <% resource.errors.messages.each do |message| %>
-      <div>
-        <%= message %>
-      </div>
-    <% end %>
   <% end %>
 
   <div class="my-1">
@@ -65,28 +59,28 @@
   </div>
 
   <div class="my-1">
-    <%= form.label "Url" %>
+    <%= form.label "URL" %>
     <ul class="smaller">
-      <% resource.errors.full_messages_for(:uri).each do |message| %>
+      <% resource.errors.full_messages_for(:url).each do |message| %>
         <li>
           <%= message %>
         </li>
       <% end %>
     </ul>
-    <%= form.text_field :uri %>
+    <%= form.url_field :url %>
     <small><%= t("resources.url.hint") %></small>
   </div>
 
   <div class="my-1">
     <%= form.label t("forms.file") %>
     <ul class="smaller">
-      <% resource.errors.full_messages_for(:uri).each do |message| %>
+      <% resource.errors.full_messages_for(:file).each do |message| %>
         <li>
           <%= message %>
         </li>
       <% end %>
     </ul>
-    <%= form.file_field :uri %>
+    <%= form.file_field :file %>
     <small><%= t("resources.file.hint") %></small>
   </div>
 

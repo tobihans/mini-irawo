@@ -11,7 +11,6 @@ class ResourcesController < ApplicationController
 
   def new
     @resource = Resource.new
-    @categories = Category.all
   end
 
   def create
@@ -22,7 +21,6 @@ class ResourcesController < ApplicationController
       # TODO: Redirect to admin view of resource
       redirect_to root_path
     else
-      @categories = Category.all
       render :new, status: :unprocessable_entity
     end
   end
