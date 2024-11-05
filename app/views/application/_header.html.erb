@@ -4,8 +4,12 @@
     <sup class="accent">mini</sup>
   </h1>
   <menu style="margin-left: 1.25rem; flex-grow: 1;">
-    <li class="selected"><%= t("models.resources") %></li>
-    <li><%= t("header.history") %></li>
+    <li class="<%= 'selected' if controller_name == "resources" %>">
+      <%= link_to t("models.resources"), root_path %>
+    </li>
+    <li class="<%= 'selected' if controller_name == "history" %>">
+      <%= t("header.history") %>
+    </li>
     <% if authenticated? %>
       <li style="margin-left: auto;">
         <%= current_user.email_address %>
