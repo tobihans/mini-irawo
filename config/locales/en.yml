@@ -22,6 +22,8 @@ en:
     category: "Category"
     price: "Price"
     free: "Free"
+    similar: "Similar Resources"
+    view_all: "View all resources"
     image:
       hint: "Please ensure image has 16:9 aspect ratio."
     url:
