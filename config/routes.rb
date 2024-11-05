@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     resources :passwords, param: :token
   end
 
+  resources :resources, only: [ :show ]
+
+  scope "_", as: "admin" do
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   root "resources#index"
