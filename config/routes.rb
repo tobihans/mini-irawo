@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :resources, only: [ :show ]
 
   scope "_", as: "admin" do
+    resources :resources, except: [ :index, :show ]
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

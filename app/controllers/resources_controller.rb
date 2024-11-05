@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  allow_unauthenticated_access only: %i[ index ]
+  allow_unauthenticated_access only: %i[ index show ]
 
   def index
     @resources = Resource.all
@@ -10,6 +10,7 @@ class ResourcesController < ApplicationController
   end
 
   def new
+    @resource = Resource.new
   end
 
   def create

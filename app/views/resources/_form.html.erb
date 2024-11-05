@@ -1,0 +1,32 @@
+<%= form_with url: admin_resources_path, model: resource do |form| %>
+  <% if resource.errors.any? %>
+    <div class="flash attention">
+      <small><%= t("forms.invalid") %></small>
+    </div>
+  <% end %>
+  <div class="my-1">
+    <%= form.label :name %>
+    <ul>
+      <% resource.errors.full_messages_for(:name).each do |message| %>
+        <li>
+          <small><%= message %></small>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.text_field :name %>
+  </div>
+  <div class="my-1">
+    <%= form.label :description %>
+    <ul>
+      <% resource.errors.full_messages_for(:description).each do |message| %>
+        <li>
+          <small><%= message %></small>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.text_area :description, rows: 10 %>
+  </div>
+  <div class="my-1">
+    <%= form.submit %>
+  </div>
+<% end %>

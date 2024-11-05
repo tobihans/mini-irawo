@@ -10,7 +10,11 @@ en:
     email: "Email address"
     password: "Password"
     forgot_password: "Forgot password?"
+  forms:
+    invalid: "Please fix the errors below."
   models:
     resources: "Resources"
+  resources:
+    new: "Add a resource"
   misc:
     or: "or"
