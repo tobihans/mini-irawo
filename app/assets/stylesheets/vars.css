@@ -1,3 +1,7 @@
 :root {
   --accent: #f8bf0e !important;
+  --light-active: #ad8dfc !important;
+  --dark-accent: #683fb4 !important;
+  --light-muted: #88929e !important;
+  --dark-muted: #525961 !important;
 }
