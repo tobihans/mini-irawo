@@ -1,7 +1,9 @@
-<div class="resource-item">
+<div
+  class="resource-item"
+  style="background: url('<%= url_for resource.image.variant(:thumb) %>"
+>
   <a href="<%= resource_url resource %>" class="resource-item_link">
     <div class="resource-item_bg"></div>
-
     <div class="resource-item_title">
       <%= resource.name %>
     </div>
