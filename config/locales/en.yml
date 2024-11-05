@@ -12,9 +12,20 @@ en:
     forgot_password: "Forgot password?"
   forms:
     invalid: "Please fix the errors below."
+    create: "Create"
+    file: "File"
   models:
     resources: "Resources"
   resources:
     new: "Add a resource"
+    image:
+      hint: "Please ensure image has 16:9 aspect ratio."
+    url:
+      hint: "Leave empty if you selected 'file' kind."
+    file:
+      hint: "Leave empty if you selected 'url' kind."
+    kind:
+      url: "URL"
+      file: "File"
   misc:
     or: "or"

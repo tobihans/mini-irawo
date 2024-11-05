@@ -21,16 +21,16 @@
 
   </div>
   <div class="my-.5">
-    <%= link_to t("auth.forgot_password"), new_password_path, class: "text-xs" %>
+    <%= link_to t("auth.forgot_password"), new_password_path, class: "smaller" %>
   </div>
   <div class="my-1">
     <%= form.submit t("auth.signin") %>
   </div>
   <!-- TODO: Add signup link -->
   <div class="flex column align-center">
-    <div class="text-xs my-.25">
+    <div class="smaller my-.25">
       <%= t("misc.or") %>
     </div>
-    <%= link_to t("auth.signup"), new_password_path, class: "text-sm" %>
+    <%= link_to t("auth.signup"), new_password_path, class: "small" %>
   </div>
 <% end %>

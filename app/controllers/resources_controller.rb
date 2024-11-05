@@ -11,9 +11,20 @@ class ResourcesController < ApplicationController
 
   def new
     @resource = Resource.new
+    @categories = Category.all
   end
 
   def create
+    @resource = Resource.new(resource_params)
+
+    if @resource.save
+      # redirect_to @resource
+      # TODO: Redirect to admin view of resource
+      redirect_to root_path
+    else
+      @categories = Category.all
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -23,5 +34,11 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def resource_params
+    params.require(:resource).permit(:name, :image, :category_id, :kind, :url, :file, :description)
   end
 end

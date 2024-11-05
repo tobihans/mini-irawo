@@ -1,32 +1,108 @@
-<%= form_with url: admin_resources_path, model: resource do |form| %>
+<%= form_with url: admin_resources_path, model: resource, local: true do |form| %>
   <% if resource.errors.any? %>
-    <div class="flash attention">
-      <small><%= t("forms.invalid") %></small>
+    <div class="flash attention small">
+      <%= t("forms.invalid") %>
     </div>
+
+    <% resource.errors.messages.each do |message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
   <% end %>
+
   <div class="my-1">
     <%= form.label :name %>
-    <ul>
+    <ul class="smaller">
       <% resource.errors.full_messages_for(:name).each do |message| %>
         <li>
-          <small><%= message %></small>
+          <%= message %>
         </li>
       <% end %>
     </ul>
     <%= form.text_field :name %>
   </div>
+
+  <div class="my-1">
+    <%= form.label :image %>
+    <ul class="smaller">
+      <% resource.errors.full_messages_for(:image).each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.file_field :image %>
+    <small><%= t("resources.image.hint") %></small>
+  </div>
+
+  <div class="my-1">
+    <%= form.label :category %>
+    <ul class="smaller">
+      <% resource.errors.full_messages_for(:category).each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.collection_select :category_id, Category.order(:name), :id, :name %>
+  </div>
+
+  <div class="my-1">
+    <%= form.label :kind %>
+    <ul class="smaller">
+      <% resource.errors.full_messages_for(:kind).each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.select :kind,
+                Resource::VALID_KINDS.map { |kind|
+                  [t("resource.kind.#{kind}"), kind]
+                },
+                selected: resource.kind || Resource::VALID_KINDS.first %>
+  </div>
+
+  <div class="my-1">
+    <%= form.label "Url" %>
+    <ul class="smaller">
+      <% resource.errors.full_messages_for(:uri).each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.text_field :uri %>
+    <small><%= t("resources.url.hint") %></small>
+  </div>
+
+  <div class="my-1">
+    <%= form.label t("forms.file") %>
+    <ul class="smaller">
+      <% resource.errors.full_messages_for(:uri).each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+      <% end %>
+    </ul>
+    <%= form.file_field :uri %>
+    <small><%= t("resources.file.hint") %></small>
+  </div>
+
   <div class="my-1">
     <%= form.label :description %>
-    <ul>
+    <ul class="smaller">
       <% resource.errors.full_messages_for(:description).each do |message| %>
         <li>
-          <small><%= message %></small>
+          <%= message %>
         </li>
       <% end %>
     </ul>
     <%= form.text_area :description, rows: 10 %>
   </div>
+
   <div class="my-1">
-    <%= form.submit %>
+    <%= form.submit t("forms.create") %>
   </div>
 <% end %>

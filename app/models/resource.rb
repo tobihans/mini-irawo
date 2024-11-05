@@ -6,7 +6,7 @@
 #  description :string
 #  kind        :string
 #  name        :string
-#  uri         :string
+#  url         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer          not null
@@ -23,4 +23,10 @@ class Resource < ApplicationRecord
   belongs_to :category
   has_one_attached :image
   has_one_attached :file
+
+  VALID_KINDS = %w[url file]
+
+  validates :name, presence: true, length: { minimum: 5, maximum: 255 }
+  validates :description, presence: true, length: { minimum: 75 }
+  validates :kind, inclusion: { in: VALID_KINDS }
 end
