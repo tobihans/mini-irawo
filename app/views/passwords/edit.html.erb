@@ -1,6 +1,6 @@
 <h1>Update your password</h1>
 
-<%= tag.div(flash[:alert], class: "flash attention") if flash[:alert] %>
+<%= tag.div(flash[:alert], class: "flash severe") if flash[:alert] %>
 
 <%= form_with url: password_path(params[:token]), method: :put do |form| %>
   <%= form.password_field :password,

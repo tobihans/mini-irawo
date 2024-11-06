@@ -1,4 +1,4 @@
-<%= tag.div(flash[:alert], class: "flash attention") if flash[:alert] %>
+<%= tag.div(flash[:alert], class: "flash severe") if flash[:alert] %>
 <%= tag.div(flash[:notice], class: "flash success") if flash[:notice] %>
 
 <%= form_with url: session_path do |form| %>

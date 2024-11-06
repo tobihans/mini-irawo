@@ -1,7 +1,7 @@
 <div>
   <%= form_with url: admin_resources_path, model: resource, local: true do |form| %>
     <% if resource.errors.any? %>
-      <div class="flash attention small">
+      <div class="flash severe small">
         <%= t("forms.invalid") %>
       </div>
     <% end %>

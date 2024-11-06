@@ -1,24 +1,23 @@
-module Authentication
+module Admin
   extend ActiveSupport::Concern
 
   included do
-    before_action :require_admin
     helper_method :admin?
   end
 
   class_methods do
-    def allow_non_admin_access(**options)
-      skip_before_action :require_admin, **options
+    def require_staff_role(**options)
+      before_action :require_staff, **options
     end
   end
 
   private
 
   def admin?
-    Current.user&.is_admin?
+    Current.user&.is_staff?
   end
 
-  def request_admin
+  def require_staff
     if !admin?
       redirect_to new_session_path, alert: t("auth.not_admin")
     end

@@ -26,6 +26,7 @@ class Resource < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 2, preprocessed: true
   end
   has_one_attached :file
+  has_many :orders, dependent: :destroy
 
   scope :by_pricing, ->(pricing) {
           if pricing.present?

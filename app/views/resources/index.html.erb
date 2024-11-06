@@ -1,12 +1,5 @@
-<%= stylesheet_link_tag params[:controller] %>
-
-<% content_for :aside do %>
-  <aside>
-    <div>
-      A simple page
-    </div>
-  </aside>
-<% end %>
+<%= tag.div(flash[:alert], class: "flash severe") if flash[:alert] %>
+<%= tag.div(flash[:notice], class: "flash success") if flash[:notice] %>
 
 <h2 class="mt-1.5"><%= t("models.resources") %></h2>
 <!-- Adapted from https://codepen.io/wikyware-net/pen/dyKPRxQ -->

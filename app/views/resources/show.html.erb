@@ -1,5 +1,6 @@
 <h2><%= @resource.name %></h2>
 <%= image_tag @resource.image, style: "width: 100%; max-height: 100%; height: auto;" %>
+
 <!-- TODO: Add buy form -->
 <div class="my-2">
   <% @resource.description.split("\n").each do |line| %>
