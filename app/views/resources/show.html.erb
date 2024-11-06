@@ -15,11 +15,13 @@
   </div>
 <% end %>
 <%= image_tag @resource.image, style: "width: 100%; max-height: 100%; height: auto;" %>
-<%= render "orders/form", order: @order %>
+<% if !staff? %>
+  <%= render "orders/form", order: @order %>
+<% end %>
 <div class="my-2">
   <h3>Description</h3>
-  <% @resource.description.split("\n").each do |line| %>
-    <p><%= line %></p>
+  <% @resource.description.split("\n").each do |par| %>
+    <p><%= par %></p>
   <% end %>
 </div>
 <div>

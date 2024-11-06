@@ -13,6 +13,7 @@ en:
     reset: "Reset password"
     not_admin: "Please login as an admin to perform this action."
   forms:
+    submit: "Submit"
     invalid: "Please fix the errors below."
     create: "Create"
     file: "File"
@@ -27,6 +28,9 @@ en:
     create:
       error: "Something went wrong, please try again."
       success: "Yay! Order successfully created!"
+      guest_warn: "Since you're not logged in, we can't save the history. Please save the link to access again your resource."
+    get_access: "Get access"
+    detail: "Order"
   resources:
     new: "Add a resource"
     edit: "Edit resource"
@@ -52,3 +56,5 @@ en:
       file: "File"
   misc:
     or: "or"
+  errors:
+    admin_cannot_buy: "You can't buy this resource as an admin."

@@ -22,8 +22,9 @@
 #
 class Resource < ApplicationRecord
   belongs_to :category
-  has_one_attached :image do |attachable|
-    attachable.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 2, preprocessed: true
+  has_one_attached :image do |image|
+    image.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 2, preprocessed: true
+    image.variant :history_thumb, resize_to_limit: [ 100, 100 ], preprocessed: true
   end
   has_one_attached :file
   has_many :orders, dependent: :destroy
@@ -51,12 +52,12 @@ class Resource < ApplicationRecord
 
   with_options if: :external? do
     validates :url, presence: true, url: true
-    validates :file, absence: true
+    validates :file, absence: true, on: :create
   end
 
   with_options if: :internal? do
     validates :file, presence: true
-    validates :url, absence: true
+    validates :url, absence: true, on: :create
   end
 
   def external?

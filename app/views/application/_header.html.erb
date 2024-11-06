@@ -1,4 +1,5 @@
 <header>
+  <%= params[:action] %>
   <h1>
     <%= link_to "💫 Irawo", root_path, class: "logo bold" %>
     <sup class="accent">
@@ -11,11 +12,14 @@
   <menu class="desktop-menu" style="margin-left: 1.25rem; flex-grow: 1;">
     <li class="<%= 'selected' if controller_name == "resources" %>">
       <%= link_to t("models.resources"), root_path %>
-      <menu>
-        <li>
-          <%= link_to t("resources.new"), new_admin_resource_path(@resource) %>
-        </li>
-      </menu>
+
+      <% if staff? %>
+        <menu>
+          <li>
+            <%= link_to t("resources.new"), new_admin_resource_path(@resource) %>
+          </li>
+        </menu>
+      <% end %>
     </li>
     <% if !staff? %>
       <li class="<%= 'selected' if controller_name == "history" %>">

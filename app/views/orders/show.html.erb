@@ -1,1 +1,22 @@
 <%= tag.div(flash[:notice], class: "flash success") if flash[:notice] %>
+<%= tag.div(flash[:alert], class: "flash severe") if flash[:alert] %>
+<div class="order-details">
+  <h2><%= "#{t("orders.detail")} ##{@order.id}" %></h2>
+  <div class="my-2">
+    <h3><%= @order.resource.name %></h3>
+    <div class="my-1">
+      <div class="flex column mr-1" style="float:left">
+        <%= image_tag @order.resource.image.variant(:thumb) %>
+        <button>
+          <%= link_to t("orders.get_access"),
+          order_path(@order, get: "yes"),
+          target: "_blank",
+          rel: "nofollow" %>
+        </button>
+      </div>
+      <% @order.resource.description.split("\n").each do |par| %>
+        <p><%= par %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

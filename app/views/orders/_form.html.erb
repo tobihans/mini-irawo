@@ -4,10 +4,7 @@
     <%= tag.div(order.errors.full_messages.join(", "), class: "flash severe small") %>
   <% end %>
 
-  <%= form.collection_select :resource_id,
-                         Resource.where(id: order.resource.id),
-                         :id,
-                         :name %>
+  <%= form.hidden_field :resource_id, value: order.resource.id %>
   <%= form.submit (
                 if order.resource.price == 0
                   t("forms.get")
