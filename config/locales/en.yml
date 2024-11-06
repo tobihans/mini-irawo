@@ -11,6 +11,7 @@ en:
     password: "Password"
     forgot_password: "Forgot password?"
     reset: "Reset password"
+    not_admin: "Please login as an admin to perform this action."
   forms:
     invalid: "Please fix the errors below."
     create: "Create"
