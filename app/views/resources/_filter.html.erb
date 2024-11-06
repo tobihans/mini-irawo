@@ -12,6 +12,7 @@
                         [t("resources.price.free"), "free"],
                         [t("resources.price.paid"), "paid"],
                       ],
+                      selected: "all",
                     ) %>
       </div>
       <div class="filter f-category flex align-center">
@@ -20,7 +21,8 @@
                                Category.all,
                                :id,
                                :name,
-                               prompt: t("resources.category").downcase %>
+                               prompt: "---",
+                               selected: params[:category_id] || "---" %>
       </div>
     </div>
   </fieldset>
