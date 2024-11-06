@@ -15,13 +15,18 @@ en:
     invalid: "Please fix the errors below."
     create: "Create"
     file: "File"
+    reset: "Reset"
+    filter: "Filter"
   models:
     resources: "Resources"
   resources:
     new: "Add a resource"
     category: "Category"
-    price: "Price"
-    free: "Free"
+    price:
+      label: "Price"
+      free: "Free"
+      paid: "Paid"
+      all: "All"
     similar: "Similar Resources"
     view_all: "View all resources"
     image:

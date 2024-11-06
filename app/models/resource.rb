@@ -23,7 +23,7 @@
 class Resource < ApplicationRecord
   belongs_to :category
   has_one_attached :image do |attachable|
-    attachable.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 4, preprocessed: true
+    attachable.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 2, preprocessed: true
   end
   has_one_attached :file
 

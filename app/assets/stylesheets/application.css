@@ -59,7 +59,7 @@
   & > :is(main:only-of-type) {
     min-height: 100dvh;
 
-    & > form {
+    & > form:not(.resources-filter-form) {
       margin: 3rem auto;
       max-width: 500px;
 

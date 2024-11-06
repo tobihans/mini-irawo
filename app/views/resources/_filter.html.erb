@@ -1,0 +1,34 @@
+<%= form_with url: root_path, method: :get, local: true, class: "resources-filter-form" do |form| %>
+  <fieldset>
+    <legend><%= t("form.filters") %></legend>
+
+    <div class="flex fields-wrapper">
+      <div class="filter f-price flex align-center">
+        <%= form.label :price, "#{t("resources.price.label")}:" %>
+        <%= form.select :pricing,
+                    options_for_select(
+                      [
+                        [t("resources.price.all"), 0],
+                        [t("resources.price.free"), -1],
+                        [t("resources.price.paid"), 1],
+                      ],
+                    ) %>
+      </div>
+      <div class="filter f-category flex align-center">
+        <%= form.label :category_id, "#{t("resources.category")}:", class: "" %>
+        <%= form.collection_select :category_id,
+                               Category.all,
+                               :id,
+                               :name,
+                               prompt: t("resources.category").downcase %>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="flex controls">
+    <button type="reset">
+      <%= t("forms.reset") %>
+    </button>
+    <%= form.submit t("forms.filter") %>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 <div
   class="resource-item"
-  style="background: url('<%= url_for resource.image.variant(:thumb) %>"
+  style="background: url('<%= url_for resource.image.variant(:thumb) %>');background-size: cover;"
 >
   <a href="<%= resource_url resource %>" class="resource-item_link">
     <div class="resource-item_bg"></div>
@@ -38,7 +38,7 @@
         <% if resource.price > 0 %>
           <%= resource.price %>
         <% else %>
-          <%= t("resources.free") %>
+          <%= t("resources.price.free") %>
         <% end %>
       </span>
     </div>

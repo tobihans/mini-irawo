@@ -25,6 +25,7 @@
   flex-direction: column;
 
   padding: 30px 20px;
+  /* https://chriscoyier.net/2023/05/12/add-opacity-to-an-existing-color/ */
   background-color: rgb(from var(--default) r g b / 85%);
 
   min-height: 200px;
@@ -87,6 +88,34 @@
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.resources-filter-form {
+  & .fields-wrapper {
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    @media (min-width: 960px) {
+      flex-wrap: nowrap;
+      width: 100%;
+
+      & > * {
+        width: 50%;
+      }
+    }
+  }
+  .filter {
+    gap: 0.25rem;
+
+    & > label {
+      margin: 0;
+    }
+  }
+  & .controls {
+    & > * {
+      width: fit-content;
+    }
+  }
 }
 
 @media only screen and (max-width: 979px) {
