@@ -19,7 +19,7 @@
     </li>
     <% if !staff? %>
       <li class="<%= 'selected' if controller_name == "history" %>">
-        <%= t("header.history") %>
+        <%= link_to t("header.history"), orders_path %>
       </li>
     <% end %>
     <% if authenticated? %>
@@ -57,7 +57,7 @@
         <% end %>
         <% if !staff? %>
           <li class="<%= 'selected' if controller_name == "history" %>">
-            <%= t("header.history") %>
+            <%= link_to t("header.history"), orders_path %>
           </li>
         <% end %>
         <% if authenticated? %>

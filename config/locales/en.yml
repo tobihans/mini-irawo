@@ -22,6 +22,11 @@ en:
     get: "Get for free"
   models:
     resources: "Resources"
+  orders:
+    title: "Orders History"
+    create:
+      error: "Something went wrong, please try again."
+      success: "Yay! Order successfully created!"
   resources:
     new: "Add a resource"
     edit: "Edit resource"

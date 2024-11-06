@@ -1,10 +1,18 @@
-<%= form_with model: resource, local: true, class: "order-form" do |form| %>
-  <%= form.hidden_field :resource_id, value: resource.id %>
+<%= form_with model: order, class: "order-form" do |form| %>
+
+  <% if order.errors.any? %>
+    <%= tag.div(order.errors.full_messages.join(", "), class: "flash severe small") %>
+  <% end %>
+
+  <%= form.collection_select :resource_id,
+                         Resource.where(id: order.resource.id),
+                         :id,
+                         :name %>
   <%= form.submit (
-                if resource.price == 0
+                if order.resource.price == 0
                   t("forms.get")
                 else
-                  "#{t("forms.buy")} #{resource.price} XOF"
+                  "#{t("forms.buy")} #{order.resource.price} XOF"
                 end
               ),
               class: "order-cta" %>

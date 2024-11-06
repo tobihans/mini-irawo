@@ -21,4 +21,6 @@
 class Order < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :resource
+
+  validates :resource_id, presence: true
 end

@@ -8,6 +8,7 @@ class ResourcesController < ApplicationController
 
   def show
     @resource = Resource.find(params[:id])
+    @order = Order.new
   end
 
   def new

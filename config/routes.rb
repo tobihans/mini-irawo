@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :resources, only: [ :show ]
+  resources :orders, only: [ :index, :new, :show, :create ]
 
   scope "_", as: "admin", admin: true do
     resources :resources, except: [ :index ]
