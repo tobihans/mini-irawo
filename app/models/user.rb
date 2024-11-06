@@ -4,6 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  email_address   :string           not null
+#  is_staff        :boolean
 #  password_digest :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
