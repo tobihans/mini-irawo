@@ -4,13 +4,13 @@
 
     <div class="flex fields-wrapper">
       <div class="filter f-price flex align-center">
-        <%= form.label :price, "#{t("resources.price.label").titleize}:", class: "small" %>
+        <%= form.label :pricing, "#{t("resources.price.label").titleize}:", class: "small" %>
         <%= form.select :pricing,
                     options_for_select(
                       [
-                        [t("resources.price.all"), 0],
-                        [t("resources.price.free"), -1],
-                        [t("resources.price.paid"), 1],
+                        [t("resources.price.all"), "all"],
+                        [t("resources.price.free"), "free"],
+                        [t("resources.price.paid"), "paid"],
                       ],
                     ) %>
       </div>

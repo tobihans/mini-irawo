@@ -27,6 +27,18 @@ class Resource < ApplicationRecord
   end
   has_one_attached :file
 
+  scope :by_pricing, ->(pricing) {
+          if pricing.present?
+            case pricing
+            when "free"
+              where("price = 0")
+            when "paid"
+              where("price > 0")
+            end
+          end
+        }
+  scope :by_category, ->(category_id) { where(category_id: category_id) if category_id.present? }
+
   VALID_KINDS = %w[url file]
 
   validates :name, presence: true, length: { minimum: 5, maximum: 255 }

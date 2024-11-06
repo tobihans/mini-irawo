@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
 
   def index
-    @resources = Resource.order(created_at: :desc)
+    @resources = Resource.order(created_at: :desc).by_category(params[:category_id]).by_pricing(params[:pricing])
   end
 
   def show
@@ -17,9 +17,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(resource_params)
 
     if @resource.save
-      # redirect_to @resource
-      # TODO: Redirect to admin view of resource
-      redirect_to root_path
+      redirect_to @resource
     else
       render :new, status: :unprocessable_entity
     end
