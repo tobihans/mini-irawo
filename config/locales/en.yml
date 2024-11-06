@@ -18,10 +18,16 @@ en:
     file: "File"
     reset: "Reset"
     filter: "Filter"
+    buy: "Buy at"
+    get: "Get for free"
   models:
     resources: "Resources"
   resources:
     new: "Add a resource"
+    edit: "Edit resource"
+    destroy:
+      label: "Delete resource"
+      confirm: "Are you sure? This will remove all associated orders !"
     category: "Category"
     price:
       label: "Price"

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   resources :resources, only: [ :show ]
 
-  scope "_", as: "admin" do
-    resources :resources, except: [ :index, :show ]
+  scope "_", as: "admin", admin: true do
+    resources :resources, except: [ :index ]
+    root "resources#index"
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

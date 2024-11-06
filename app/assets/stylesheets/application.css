@@ -85,3 +85,7 @@
     }
   }
 }
+
+a[data-turbo-method="delete"] {
+  color: var(--danger);
+}

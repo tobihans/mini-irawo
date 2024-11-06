@@ -3,12 +3,16 @@ module Authentication
 
   included do
     before_action :require_authentication
-    helper_method :authenticated?, :current_user
+    helper_method :authenticated?, :staff?, :current_user
   end
 
   class_methods do
     def allow_unauthenticated_access(**options)
       skip_before_action :require_authentication, **options
+    end
+
+    def require_staff_role(**options)
+      before_action :require_staff, **options
     end
   end
 
@@ -18,12 +22,22 @@ module Authentication
     resume_session
   end
 
+  def staff?
+    current_user&.is_staff
+  end
+
   def current_user
     Current.user if authenticated?
   end
 
   def require_authentication
     resume_session || request_authentication
+  end
+
+  def require_staff
+    if !staff?
+      redirect_to new_session_path, alert: t("auth.not_admin")
+    end
   end
 
   def resume_session

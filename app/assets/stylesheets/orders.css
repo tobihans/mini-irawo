@@ -1,0 +1,10 @@
+.order-form {
+  background: transparent;
+  margin: 0 !important;
+
+  /* for CTA */
+  --accent: var(--active);
+  .order-cta {
+    width: fit-content;
+  }
+}

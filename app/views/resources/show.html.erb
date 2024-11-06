@@ -1,8 +1,20 @@
 <h2><%= @resource.name %></h2>
-<%= image_tag @resource.image, style: "width: 100%; max-height: 100%; height: auto;" %>
+<% if staff? %>
+  <div class="my-.5">
+    <%= link_to t("resources.edit"), edit_admin_resource_path(@resource) %>
 
-<!-- TODO: Add buy form -->
+    <%= link_to t("resources.destroy.label"),
+    admin_resource_path(@resource),
+    data: {
+      turbo_method: :delete,
+      turbo_confirm: t("resources.destroy.confirm"),
+    } %>
+  </div>
+<% end %>
+<%= image_tag @resource.image, style: "width: 100%; max-height: 100%; height: auto;" %>
+<%= render "orders/form", resource: @resource %>
 <div class="my-2">
+  <h3>Description</h3>
   <% @resource.description.split("\n").each do |line| %>
     <p><%= line %></p>
   <% end %>

@@ -1,7 +1,7 @@
 <%= tag.div(flash[:alert], class: "flash severe") if flash[:alert] %>
 <%= tag.div(flash[:notice], class: "flash success") if flash[:notice] %>
 
-<%= form_with url: session_path do |form| %>
+<%= form_with url: session_path, local: true do |form| %>
   <h2 class="centered"><%= t("auth.signin") %></h2>
   <div class="my-1">
     <%= form.label t("auth.email") %>

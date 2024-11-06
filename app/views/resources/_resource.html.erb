@@ -36,7 +36,7 @@
         /></svg>
       <span class="resource-item_info">
         <% if resource.price > 0 %>
-          <%= resource.price %>
+          <%= "#{resource.price} XOF" %>
         <% else %>
           <%= t("resources.price.free") %>
         <% end %>

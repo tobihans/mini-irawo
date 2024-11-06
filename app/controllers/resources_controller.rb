@@ -1,6 +1,4 @@
 class ResourcesController < ApplicationController
-  include Admin
-
   allow_unauthenticated_access only: %i[ index show ]
   require_staff_role only: %i[ new create edit update destroy ]
 

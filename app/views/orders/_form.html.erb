@@ -1,0 +1,11 @@
+<%= form_with model: resource, local: true, class: "order-form" do |form| %>
+  <%= form.hidden_field :resource_id, value: resource.id %>
+  <%= form.submit (
+                if resource.price == 0
+                  t("forms.get")
+                else
+                  "#{t("forms.buy")} #{resource.price} XOF"
+                end
+              ),
+              class: "order-cta" %>
+<% end %>

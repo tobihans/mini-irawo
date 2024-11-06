@@ -2,7 +2,7 @@
 
 <%= tag.div(flash[:alert], class: "flash severe") if flash[:alert] %>
 
-<%= form_with url: password_path(params[:token]), method: :put do |form| %>
+<%= form_with url: password_path(params[:token]), method: :put, local: true do |form| %>
   <%= form.password_field :password,
                       required: true,
                       autocomplete: "new-password",
