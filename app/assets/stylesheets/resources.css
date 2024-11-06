@@ -95,6 +95,10 @@
     flex-wrap: wrap;
     gap: 1rem;
 
+    & > * {
+      width: 100%;
+    }
+
     @media (min-width: 960px) {
       flex-wrap: nowrap;
       width: 100%;

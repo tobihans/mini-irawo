@@ -4,7 +4,7 @@
 
     <div class="flex fields-wrapper">
       <div class="filter f-price flex align-center">
-        <%= form.label :price, "#{t("resources.price.label")}:" %>
+        <%= form.label :price, "#{t("resources.price.label").titleize}:", class: "small" %>
         <%= form.select :pricing,
                     options_for_select(
                       [
@@ -15,7 +15,7 @@
                     ) %>
       </div>
       <div class="filter f-category flex align-center">
-        <%= form.label :category_id, "#{t("resources.category")}:", class: "" %>
+        <%= form.label :category_id, "#{t("resources.category").titleize}:", class: "small" %>
         <%= form.collection_select :category_id,
                                Category.all,
                                :id,
