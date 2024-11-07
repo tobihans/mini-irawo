@@ -23,8 +23,8 @@ if ENV.key?("DEFAULT_ADMIN_EMAIL")
     .find_or_create_by!(email_address: ENV["DEFAULT_ADMIN_EMAIL"])
 end
 
-RESOURCES_COUNT = 50
-LOREM = File.read(Rails.root.join("storage/seed-assets/lorem.txt"))
+RESOURCES_COUNT = 25
+LOREM = File.read(Rails.root.join("seed-files/lorem.txt"))
 CLIENT = User.where(email_address: ENV["DEFAULT_CLIENT_EMAIL"]).first
 
 RESOURCES_COUNT.times do |i|
@@ -39,7 +39,7 @@ RESOURCES_COUNT.times do |i|
     category: Category.where(name: CATEGORIES.sample).first,
   )
   resource.image.attach(
-    io: File.open(Rails.root.join("storage/seed-assets/image.png")),
+    io: File.open(Rails.root.join("seed-files/image.png")),
     filename: "image-#{rand()}.png",
   )
 
@@ -47,7 +47,7 @@ RESOURCES_COUNT.times do |i|
     resource.url = "https://tobihans.space"
   else
     resource.file.attach(
-      io: File.open(Rails.root.join("storage/seed-assets/blank.pdf")),
+      io: File.open(Rails.root.join("seed-files/blank.pdf")),
       filename: "attachment-#{rand()}.pdf",
     )
   end

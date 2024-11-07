@@ -51,6 +51,6 @@
       .where(category: @resource.category)
       .where.not(id: @resource.id)
       .limit(3) %>
-    <%= link_to t("resources.view_all"), root_path, class: "ml-1" %>
   </div>
+  <%= link_to t("resources.view_all"), root_path, class: "ml-1" %>
 </div>
