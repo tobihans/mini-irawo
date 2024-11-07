@@ -26,7 +26,8 @@ set env_vars: {
   RAILS_ENV: "production",
   RUBY_YJIT_ENABLE: "1",
   BOOTSNAP_CACHE_DIR: "tmp/bootsnap-cache",
-  RAILS_MASTER_KEY: ENV["TOMO_RAILS_MASTER_KEY"]
+  RAILS_MASTER_KEY: ENV["TOMO_RAILS_MASTER_KEY"],
+  SEED_PROD: "yes"
 }
 set linked_dirs: %w[
       .yarn/cache
