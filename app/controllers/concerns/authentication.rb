@@ -35,7 +35,7 @@ module Authentication
   end
 
   def require_staff
-    if !staff?
+    unless staff?
       redirect_to new_session_path, alert: t("auth.not_admin")
     end
   end

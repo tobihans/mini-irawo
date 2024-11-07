@@ -50,7 +50,7 @@ class Resource < ApplicationRecord
   validates :image, attached: true,
                     processable_image: true,
                     size: { less_than: 3.megabytes },
-                    content_type: [ "image/png", "image/jpeg" ],
+                    content_type: %w[image/png image/jpeg],
                     aspect_ratio: :landscape
 
   validates :kind, inclusion: { in: VALID_KINDS }
@@ -66,7 +66,7 @@ class Resource < ApplicationRecord
     validates :url, absence: true, on: :create
     validates :file, attached: true,
                      size: { less_than: 10.megabytes },
-                     content_type: [ "application/pdf", "text/plain" ]
+                     content_type: %w[application/pdf text/plain]
   end
 
   def external?
