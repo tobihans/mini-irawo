@@ -8,7 +8,7 @@ plugin "puma"
 plugin "rbenv"
 plugin "./plugins/mini-irawo.rb"
 
-host "root@95.217.219.44"
+host ENV["TOMO_HOST"]
 
 set application: "mini-irawo"
 set deploy_to: "/var/www/%{application}"
@@ -26,9 +26,7 @@ set env_vars: {
   RAILS_ENV: "production",
   RUBY_YJIT_ENABLE: "1",
   BOOTSNAP_CACHE_DIR: "tmp/bootsnap-cache",
-  # DATABASE_URL: :prompt,
-  # SECRET_KEY_BASE: :generate_secret,
-  RAILS_MASTER_KEY: "11cbbf1bbf03bfc2e762b999968d956e"
+  RAILS_MASTER_KEY: ENV["TOMO_RAILS_MASTER_KEY"]
 }
 set linked_dirs: %w[
       .yarn/cache
