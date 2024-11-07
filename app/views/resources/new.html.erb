@@ -28,7 +28,7 @@
           </li>
         <% end %>
       </ul>
-      <%= form.file_field :image %>
+      <%= form.file_field :image, accept: ".jpg,.jpeg,.png" %>
       <small><%= t("resources.image.hint") %></small>
     </div>
 
@@ -94,7 +94,7 @@
           </li>
         <% end %>
       </ul>
-      <%= form.file_field :file %>
+      <%= form.file_field :file, accept: ".pdf,.txt" %>
       <small><%= t("resources.file.hint") %></small>
     </div>
 

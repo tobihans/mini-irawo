@@ -24,7 +24,8 @@ class Resource < ApplicationRecord
   belongs_to :category
   has_one_attached :image do |image|
     image.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 2, preprocessed: true
-    image.variant :history_thumb, resize_to_limit: [ 175, 175 ], preprocessed: true
+    image.variant :compressed, saver: { quality: 75 }, preprocessed: true
+    image.variant :further_compressed, saver: { quality: 50 }, preprocessed: true
   end
   has_one_attached :file
   has_many :orders, dependent: :destroy
@@ -44,7 +45,12 @@ class Resource < ApplicationRecord
   VALID_KINDS = %w[url file]
 
   validates :name, presence: true, length: { minimum: 5, maximum: 255 }
-  validates :image, presence: true
+
+  validates :image, attached: true,
+                    processable_image: true,
+                    size: { less_than: 3.megabytes },
+                    content_type: [ "image/png", "image/jpeg" ],
+                    aspect_ratio: :landscape
 
   validates :kind, inclusion: { in: VALID_KINDS }
   validates :price, presence: true, comparison: { greater_than_or_equal_to: 0 }
@@ -56,8 +62,10 @@ class Resource < ApplicationRecord
   end
 
   with_options if: :internal? do
-    validates :file, presence: true
     validates :url, absence: true, on: :create
+    validates :file, attached: true,
+                     size: { less_than: 11.megabytes },
+                     content_type: [ "application/pdf", "text/plain" ]
   end
 
   def external?
