@@ -1,13 +1,19 @@
 # Irawo Mini
 
-- TODO: add a TOC
-Ce projet est un clone de la gestion des ressources sur le site [irawo.co](https://www.irawo.co).
+Ce projet est une assignation dans le cadre de mon interview à [IRAWO](https://www.irawo.co).
+Il s'agit d'une reproduction simplifiée de la section *Resources*.
 
-Ce projet est une assignation dans le cadre de mon interview à IRAWO. Il s'agit d'une reproduction simplifiée de la section *Resources*.
-
-## Apercu
-### Fonctionnalités 
-### Démo
+## Fonctionnalités 
+- [x] Liste des ressources disponibles
+- [x] Achat des ressources
+- [x] Landing page de chaque ressource
+- [x] Historique des ressources achetées
+- [x] Authentification des utilisateurs
+- [x] Espace administrateur :
+  - [x] Ajout de ressource
+  - [x] Édition de ressource
+  - [x] Suppression de ressource
+## Démo
 Une version de démo de l'application est déployée à l'adresse [https://mini-irawo.tobihans.space](https://mini-irawo.tobihans.space).
 
 **Identifiants**:
@@ -28,13 +34,8 @@ bundle install
 ```
 - Démarrer les serveur de développement
 ```sh
-bin/rails server # -b 0.0.0.0 to open to LAN
+bin/rails server # -b 0.0.0.0 # [LAN]
 ```
 L'application sera accessible à l'adresse [http://localhost:3000](http://localhost:3000).
-
-## Choix techniques 
-
-## Difficultés
-
 
 &copy; Copyright 2024 Hans Tognon
