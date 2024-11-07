@@ -32,6 +32,7 @@ en:
     get_access: "Get access"
     detail: "Order"
   resources:
+    link: "Lien ⤤"
     new: "Add a resource"
     edit: "Edit resource"
     destroy:
