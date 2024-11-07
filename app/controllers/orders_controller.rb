@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   allow_unauthenticated_access only: %i[ show create ]
 
   def index
+    @orders = Order.joins(:resource).where(user: Current.user).order(created_at: :desc)
   end
 
   def show

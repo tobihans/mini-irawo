@@ -1,0 +1,21 @@
+<div class="order-history-details">
+  <div class="my-2">
+    <div class="my-1 flex w-full">
+      <div class="flex column mr-1" style="width: 20%">
+        <%= image_tag order.resource.image.variant(:history_thumb) %>
+        <button>
+          <%= link_to t("orders.get_access"),
+          order_path(order, get: "yes"),
+          target: "_blank",
+          rel: "nofollow" %>
+        </button>
+      </div>
+      <div>
+        <h3 class="small mt-0"><%= order.resource.name %>(<%= "##{order.id}" %>)</h3>
+        <% truncate(order.resource.description, length: 200, omission: '...').split("\n").each do |par| %>
+          <p><%= par %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

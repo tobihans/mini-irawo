@@ -89,3 +89,7 @@
 a[data-turbo-method="delete"] {
   color: var(--danger);
 }
+
+.w-full {
+  width: 100%;
+}

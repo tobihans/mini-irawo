@@ -24,7 +24,7 @@ class Resource < ApplicationRecord
   belongs_to :category
   has_one_attached :image do |image|
     image.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 2, preprocessed: true
-    image.variant :history_thumb, resize_to_limit: [ 100, 100 ], preprocessed: true
+    image.variant :history_thumb, resize_to_limit: [ 175, 175 ], preprocessed: true
   end
   has_one_attached :file
   has_many :orders, dependent: :destroy
