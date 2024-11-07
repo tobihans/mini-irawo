@@ -51,7 +51,7 @@ class Resource < ApplicationRecord
                     processable_image: true,
                     size: { less_than: 3.megabytes },
                     content_type: [ "image/png", "image/jpeg" ],
-                    aspect_ratio: :is_16_9
+                    aspect_ratio: :landscape
 
   validates :kind, inclusion: { in: VALID_KINDS }
   validates :price, presence: true, comparison: { greater_than_or_equal_to: 0 }

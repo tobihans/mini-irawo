@@ -48,7 +48,7 @@ en:
     similar: "Similar Resources"
     view_all: "View all resources"
     image:
-      hint: "Please ensure image has 16:9 aspect ratio. PNG or JPG only allowed. Max size 3mb."
+      hint: "Please ensure image has a landscape aspect ratio. PNG or JPG only allowed. Max size 3mb."
     url:
       hint: "Leave empty if you selected 'file' kind."
     file:
