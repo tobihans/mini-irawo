@@ -5,9 +5,9 @@ class ResourcesController < ApplicationController
   def index
     @resources = Resource.joins(:category)
       .order(created_at: :desc)
-      .by_category(params[:category_id])
-      .by_pricing(params[:pricing])
-      .paginate(page: params[:page], per_page: 10)
+      .by_category(filter_params[:category_id])
+      .by_pricing(filter_params[:pricing])
+      .paginate(page: pagination_params[:page], per_page: 10)
   end
 
   def show
@@ -54,5 +54,13 @@ class ResourcesController < ApplicationController
 
   def resource_params
     params.require(:resource).permit(:name, :image, :category_id, :kind, :price, :url, :file, :description)
+  end
+
+  def filter_params
+    params.permit(:category_id, :pricing)
+  end
+
+  def pagination_params
+    params.permit(:page)
   end
 end

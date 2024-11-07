@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @orders = Order.joins(:resource)
       .where(user: Current.user)
       .order(created_at: :desc)
-      .paginate(page: params[:page], per_page: 20)
+      .paginate(page: pagination_params[:page], per_page: 20)
   end
 
   def show
@@ -44,5 +44,9 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:resource_id)
+  end
+
+  def pagination_params
+    params.permit(:page)
   end
 end
