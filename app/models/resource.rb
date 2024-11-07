@@ -64,7 +64,7 @@ class Resource < ApplicationRecord
   with_options if: :internal? do
     validates :url, absence: true, on: :create
     validates :file, attached: true,
-                     size: { less_than: 11.megabytes },
+                     size: { less_than: 10.megabytes },
                      content_type: [ "application/pdf", "text/plain" ]
   end
 

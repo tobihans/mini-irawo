@@ -52,7 +52,7 @@ en:
     url:
       hint: "Leave empty if you selected 'file' kind."
     file:
-      hint: "Leave empty if you selected 'url' kind. PDF or txt only allowed. Max size is 10mb"
+      hint: "Leave empty if you selected 'url' kind. PDF or txt only allowed. Max size 10mb."
     kind:
       url: "URL"
       file: "File"
