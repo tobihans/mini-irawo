@@ -2,7 +2,10 @@ class OrdersController < ApplicationController
   allow_unauthenticated_access only: %i[ show create ]
 
   def index
-    @orders = Order.joins(:resource).where(user: Current.user).order(created_at: :desc)
+    @orders = Order.joins(:resource)
+      .where(user: Current.user)
+      .order(created_at: :desc)
+      .paginate(page: params[:page], per_page: 20)
   end
 
   def show

@@ -3,7 +3,11 @@ class ResourcesController < ApplicationController
   require_staff_role only: %i[ new create edit update destroy ]
 
   def index
-    @resources = Resource.order(created_at: :desc).by_category(params[:category_id]).by_pricing(params[:pricing])
+    @resources = Resource.joins(:category)
+      .order(created_at: :desc)
+      .by_category(params[:category_id])
+      .by_pricing(params[:pricing])
+      .paginate(page: params[:page], per_page: 10)
   end
 
   def show

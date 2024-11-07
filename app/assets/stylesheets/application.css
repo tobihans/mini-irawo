@@ -69,6 +69,12 @@
     }
   }
 
+  & div.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
   & > :is(footer:last-of-type) {
     display: flex;
     gap: 0.1rem;
