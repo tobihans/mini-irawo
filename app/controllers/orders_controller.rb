@@ -16,8 +16,7 @@ class OrdersController < ApplicationController
       when Resource::VALID_KINDS.first
         redirect_to @order.resource.url, allow_other_host: true
       when Resource::VALID_KINDS.last
-        Rails.logger # "{@order.resource.file} --===="
-        redirect_to url_for(@order.resource.file)
+        redirect_to rails_blob_path(@order.resource.file, disposition: :attachment)
       end
     end
   end
