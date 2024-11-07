@@ -23,9 +23,10 @@
 class Resource < ApplicationRecord
   belongs_to :category
   has_one_attached :image do |image|
-    image.variant :thumb, resize_to_limit: [ 400, 400 ], gaussblur: 2, preprocessed: true
-    image.variant :compressed, saver: { quality: 75 }, preprocessed: true
-    image.variant :further_compressed, saver: { quality: 50 }, preprocessed: true
+    image.variant :thumb, resize_and_pad: [ 400, 225 ], gaussblur: 2, preprocessed: true
+    image.variant :mobile, resize_and_pad: [ 640, 360 ], preprocessed: true
+    image.variant :tablet, resize_and_pad: [ 1280, 720 ], preprocessed: true
+    image.variant :desktop, resize_and_pad: [ 1280, 720 ], preprocessed: true
   end
   has_one_attached :file
   has_many :orders, dependent: :destroy
@@ -50,7 +51,7 @@ class Resource < ApplicationRecord
                     processable_image: true,
                     size: { less_than: 3.megabytes },
                     content_type: [ "image/png", "image/jpeg" ],
-                    aspect_ratio: :landscape
+                    aspect_ratio: :is_16_9
 
   validates :kind, inclusion: { in: VALID_KINDS }
   validates :price, presence: true, comparison: { greater_than_or_equal_to: 0 }
