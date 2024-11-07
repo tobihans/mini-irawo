@@ -8,7 +8,7 @@ plugin "puma"
 plugin "rbenv"
 plugin "./plugins/mini-irawo.rb"
 
-host "user@hostname.or.ip.address"
+host "root@95.217.219.44"
 
 set application: "mini-irawo"
 set deploy_to: "/var/www/%{application}"
@@ -18,28 +18,29 @@ set nodenv_install_yarn: true
 set git_url: "https://github.com/tobihans/mini-irawo.git"
 set git_branch: "main"
 set git_exclusions: %w[
-  .tomo/
-  spec/
-  test/
-]
+      .tomo/
+      spec/
+      test/
+    ]
 set env_vars: {
   RAILS_ENV: "production",
   RUBY_YJIT_ENABLE: "1",
   BOOTSNAP_CACHE_DIR: "tmp/bootsnap-cache",
-  DATABASE_URL: :prompt,
-  SECRET_KEY_BASE: :generate_secret
+  # DATABASE_URL: :prompt,
+  # SECRET_KEY_BASE: :generate_secret,
+  RAILS_MASTER_KEY: "11cbbf1bbf03bfc2e762b999968d956e"
 }
 set linked_dirs: %w[
-  .yarn/cache
-  log
-  node_modules
-  public/assets
-  public/packs
-  public/vite
-  tmp/cache
-  tmp/pids
-  tmp/sockets
-]
+      .yarn/cache
+      log
+      node_modules
+      public/assets
+      public/packs
+      public/vite
+      tmp/cache
+      tmp/pids
+      tmp/sockets
+    ]
 
 setup do
   run "env:setup"
