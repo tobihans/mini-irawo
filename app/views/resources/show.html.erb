@@ -33,9 +33,9 @@
   <!-- Default (original image) -->
   <%= image_tag @resource.image, style: "width: 100%; max-width: 100%; height: auto;" %>
 </picture>
-<% if !staff? %>
-  <%= render "orders/form", order: @order %>
-<% end %>
+<% unless staff? %>
+<%=  render "orders/form", order: @order  %>
+<%  end %>
 <div class="my-2">
   <h3>Description</h3>
   <% @resource.description.split("\n").each do |par| %>

@@ -40,7 +40,7 @@ RESOURCES_COUNT.times do |i|
   )
   resource.image.attach(
     io: File.open(Rails.root.join("seed-files/image.png")),
-    filename: "image-#{rand()}.png",
+    filename: "image-#{rand}.png",
   )
 
   if kind == "url"
@@ -48,7 +48,7 @@ RESOURCES_COUNT.times do |i|
   else
     resource.file.attach(
       io: File.open(Rails.root.join("seed-files/blank.pdf")),
-      filename: "attachment-#{rand()}.pdf",
+      filename: "attachment-#{rand}.pdf",
     )
   end
   unless resource.save
@@ -56,7 +56,7 @@ RESOURCES_COUNT.times do |i|
     STDERR.puts "Failed to create resource #{i}"
   end
 
-  if rand() > 0.5
+  if rand > 0.5
     order = Order.new(user: CLIENT, resource: resource)
     unless order.save
       STDERR.puts resource.errors.full_messages.join("\n")
